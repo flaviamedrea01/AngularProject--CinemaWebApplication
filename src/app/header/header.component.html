@@ -1,0 +1,38 @@
+<mat-toolbar class="custom-toolbar">
+  <span>
+    <ul>
+
+    <li><a mat-button routerLink="/">Home</a></li>
+    <li>
+      <a mat-button routerLink="/schedule" routerLinkActive="mat-accent">Schedule</a>
+    </li>
+    <li>
+      <a mat-button routerLink="/seats" routerLinkActive="mat-accent">Book Seats</a>
+    </li>
+  </ul>
+
+  </span>
+  <span class="spacer"></span>
+  <ul>
+    <li *ngIf="userIsAuthenticated">
+      <a mat-button routerLink="/create" routerLinkActive="mat-accent">Write Review</a>
+    </li>
+    <li *ngIf="!userIsAuthenticated">
+      <a mat-button routerLink="/login" routerLinkActive="mat-accent">Login</a>
+    </li>
+    <li *ngIf="!userIsAuthenticated">
+      <a mat-button routerLink="/signup" routerLinkActive="mat-accent">Signup</a>
+    </li>
+    <li *ngIf="userIsAuthenticated" class="menu-item">
+      <a mat-button [matMenuTriggerFor]="accountMenu" routerLinkActive="mat-accent">Account</a>
+      <mat-menu #accountMenu="matMenu" class="account-menu">
+        <button mat-menu-item routerLink="/profile">Profile</button>
+        <button mat-menu-item routerLink="/my-posts">My Reviews</button>
+        <button mat-menu-item (click)="onLogout()">Logout</button>
+
+       </mat-menu>
+    </li>
+
+
+  </ul>
+</mat-toolbar>

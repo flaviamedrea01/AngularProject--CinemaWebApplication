@@ -1,0 +1,225 @@
+* {
+  box-sizing:border-box;
+
+}
+.title {
+
+  color: black;
+	font-family: georgia, serif;
+	font-size: 60px;
+	font-variant: small-caps;
+	font-style: oblique;
+	text-shadow: 4px 4px 5px darkblue;
+	-webkit-text-stroke: 0.25px white;
+  text-align: left;
+}
+
+.g {
+  font-size: 18px;
+  text-indent: 5px;
+}
+
+p {
+  color: black;
+  font-size: 18px;
+  text-indent: 20px;
+}
+
+.custom {
+  margin-left: 100px;
+  margin-right: 100px;
+  height: auto;
+  overflow: auto;
+
+}
+.container {
+  margin-top: 80px;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-bottom: 50px;
+}
+
+.rrow {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.rrow:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column-66 {
+  flex: 0 0 66.6666%;
+  max-width: 66.6666%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.column-33 {
+  flex: 0 0 33.3333%;
+  max-width: 33.3333%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.column-33,
+.column-66 {
+  flex: 1;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+
+.text-container{
+  display: block;
+
+}
+
+.video-container {
+  position: relative;
+  height: 400px;
+  width: 100%;
+}
+
+
+img {
+  display: block;
+  height: 430px;
+  max-width: 100%;
+  box-shadow: 10px 10px 5px #4444dd;
+}
+
+
+.filterDiv {
+  float: left;
+  color: black;
+  width: 80%;
+  height: auto;;
+  margin: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: none;
+
+}
+
+.show {
+  display: block;
+}
+
+
+.btn {
+  font-family: "Gill Sans", sans-serif;
+  font-size: 15px;
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  border: 1px solid black;
+  border-radius: 4px;
+  background-color:rgba(0,0,0,0.1);
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+
+}
+
+.btn:hover {
+  background-color: #ddd;
+  box-shadow:
+  0 0 10px rgba(68, 68, 221, 0.5), /* Top shadow */
+  0 0 10px rgba(68, 68, 221, 0.5) inset, /* Bottom shadow */
+  0 0 10px rgba(68, 68, 221, 0.5), /* Right shadow */
+  0 0 10px rgba(68, 68, 221, 0.5) inset; /* Left shadow */
+}
+
+.btn.active {
+  background-color:rgba(0,0,0,0.1);
+  color: black;
+  box-shadow:
+  0 0 10px rgba(68, 68, 221, 0.5), /* Top shadow */
+  0 0 10px rgba(68, 68, 221, 0.5) inset, /* Bottom shadow */
+  0 0 10px rgba(68, 68, 221, 0.5), /* Right shadow */
+  0 0 10px rgba(68, 68, 221, 0.5) inset; /* Left shadow */
+}
+
+
+.b1 {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 4px 2px;
+  border-radius: 4px;
+
+}
+
+
+.b2 {
+  padding: 10px;
+  font-size: 15px;
+  margin: 4px 2px;
+  border-radius: 4px;
+  background-color:rgba(0,0,0,0.1);
+  color: black;
+
+}
+
+
+
+.flip-card {
+  background-color: transparent;
+  height: 430px;
+  width: 300px;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+
+  color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color:rgba(0,0,0,0.1);
+  border: 0.3px solid #4444dd;
+  box-shadow: 10px 10px 5px #4444dd;
+  color: white;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  padding: 0 20px; /* Padding on left and right */
+  text-indent: 20px;
+  text-align: justify;
+  transform: rotateY(180deg);
+  backdrop-filter: blur(5px);
+}

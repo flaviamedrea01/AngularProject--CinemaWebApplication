@@ -1,0 +1,88 @@
+
+
+<div class="title">Cinema Web Application</div>
+<br>
+<mat-accordion multi="false">
+<mat-expansion-panel [expanded]="true">
+  <mat-expansion-panel-header>
+    Welcome!
+  </mat-expansion-panel-header>
+  <br>
+  <div class="row">
+    <div class="column">
+      <app-star-rating [rating]="5" [starCount]="5"></app-star-rating>
+      <div class="p11">Rating: (5/5 stars)</div>
+      <hr>
+      <br>
+  <p>About</p>
+  <p class="p2">
+    Cinema Web Application is designed to enhance the movie-going experience and foster a community of film enthusiasts.
+  </p>
+  <hr>
+  <br>
+  <p>Register and Write a Review</p>
+  <p class="p2">Take a look at the reviews below to see ratings of your favourite movies.
+  </p>
+  </div>
+  <div class="column">
+    <div class="post-image">
+      <br>
+      <br>
+      <img src="assets/img/popcorn.jpg">
+    </div>
+  </div>
+</div>
+</mat-expansion-panel>
+</mat-accordion>
+<br>
+<br>
+<br>
+
+<div class="title">Movie Reviews</div>
+<br>
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<mat-accordion multi="true" *ngIf="posts.length > 0 && !isLoading">
+  <mat-expansion-panel *ngFor="let post of posts">
+    <br><br>
+
+    <mat-expansion-panel-header>
+      {{ post.title }}
+    </mat-expansion-panel-header>
+    <div class="row">
+    <div class="column">
+      <div class="p1">{{ post.userName }}</div>
+      <br>
+
+      <app-star-rating [rating]="+post.rating" [starCount]="5"></app-star-rating>
+      <div class="p11">Rating: ({{ post.rating }}/5 stars)</div>
+      <br>
+      <div class="p2">Movie: {{ post.movie }}</div>
+    <hr>
+    <br>
+    <div class="p2">{{ post.content }}</div>
+    <hr><br>
+  </div>
+
+
+
+
+    <div class="column">
+    <div class="post-image">
+      <img [src]="post.imagePath" [alt]="post.title">
+    </div>
+
+    <br><br>
+    <br><br>
+
+
+    <mat-action-row *ngIf="post.creator === currentUser?.userId">
+      <a mat-button color="primary" [routerLink]="['/edit', post.id]">EDIT</a>
+      <button mat-button color="warn" (click)="onDelete(post.id)">DELETE</button>
+    </mat-action-row>
+  </div>
+  </div>
+  </mat-expansion-panel>
+</mat-accordion>
+<mat-paginator [length]="totalPosts" [pageSize]="postsPerPage" [pageSizeOptions]="pageSizeOptions" (page)="onChangedPage($event)"
+  *ngIf="posts.length > 0"></mat-paginator>
+<p class="info-text mat-body-1" *ngIf="posts.length <= 0 && !isLoading">No posts added yet!</p>

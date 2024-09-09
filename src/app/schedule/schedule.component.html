@@ -1,0 +1,244 @@
+<div class="container">
+  <div class="title">Cinema Schedule</div>
+  <br>
+
+  <div id="myBtnContainer">
+    <br> <br>
+
+    <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+    <button class="btn" onclick="filterSelection('monday')"> Monday</button>
+    <button class="btn" onclick="filterSelection('tuesday')"> Tuesday</button>
+    <button class="btn" onclick="filterSelection('wednesday')"> Wednesday</button>
+    <button class="btn" onclick="filterSelection('thursday')"> Thursday</button>
+    <button class="btn" onclick="filterSelection('friday')"> Friday</button>
+    <button class="btn" onclick="filterSelection('saturday')"> Saturday</button>
+    <button class="btn" onclick="filterSelection('sunday')"> Sunday</button><br>
+  </div>
+
+</div>
+
+<div class="custom">
+  <div class="filterDiv friday sunday">
+    <div class="rrow">
+      <div class="column-33">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="assets/img/garfield.jpg" alt="Garfield">
+            </div>
+            <div class="flip-card-back">
+              <p>After Garfield's unexpected reunion with his long-lost father, ragged alley cat Vic, he and his canine friend Odie are forced from their perfectly pampered lives to join Vic on a risky heist.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column-33">
+        <div class="text-container">
+          <h1>The Garfield Movie</h1>
+          <div class="g">Family, Comedy</div>
+          <br>
+          <button class="b2" *ngIf="!showVideo" (click)="playVideo()">Watch Trailer</button>
+          <br>
+          <div style="text-align:justify; font-size: 20px;">Friday</div>
+          <button class="b1">6:00pm</button>
+          <button class="b1">9:00pm</button>
+          <br><br>
+          <div style="text-align:justify; font-size: 20px;">Sunday</div>
+          <button class="b1">6:30pm</button>
+          <button class="b1">8:00pm</button>
+        </div>
+      </div>
+
+      <div class="column-33">
+        <div id="videoPlayer" *ngIf="showVideo">
+          <button class="b2" *ngIf="showVideo" (click)="endVideo()">Hide Trailer</button>
+          <br>
+          <iframe id="youtubeIframe" width="560" height="315" src="https://www.youtube.com/embed/S3XjsSvwSuU" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="filterDiv tuesday friday saturday">
+    <div class="rrow">
+      <br><br>
+      <div class="column-33">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="assets/img/thebikeriders.jpg">
+            </div>
+            <div class="flip-card-back">
+              <p>After a chance encounter, headstrong Kathy is drawn to Benny, member of Midwestern motorcycle club the Vandals. As the club transforms into a dangerous underworld of violence, Benny must choose between Kathy and his loyalty to the club.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column-33">
+        <div class="text-container">
+          <h1>The Bikeriders</h1>
+          <div class="g">Crime, Thriller</div>
+          <br>
+          <button class="b2" *ngIf="!showVideo1" (click)="playVideo1()">Watch Trailer</button>
+          <br>
+          <div style="text-align:justify; font-size: 20px;">Tuesday</div>
+          <button class="b1">5:30pm</button>
+          <br><br>
+          <div style="text-align:justify; font-size: 20px;">Friday</div>
+          <button class="b1">8:00pm</button>
+          <button class="b1">10:00pm</button>
+          <br><br>
+          <div style="text-align:justify; font-size: 20px;">Saturday</div>
+          <button class="b1">4:30pm</button>
+          <button class="b1">7:00pm</button>
+        </div>
+      </div>
+
+      <div class="column-33">
+        <div id="videoPlayer" *ngIf="showVideo1">
+          <button class="b2" *ngIf="showVideo1" (click)="endVideo1()">Hide Trailer</button>
+          <br>
+          <iframe id="youtubeIframe" width="560" height="315" src="https://www.youtube.com/embed/BrSaVt5pvPk" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="filterDiv friday sunday saturday">
+    <div class="rrow">
+      <br><br>
+      <div class="column-33">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="assets/img/aquietplace.jpg">
+            </div>
+            <div class="flip-card-back">
+              <p>A woman named Sam must survive an invasion in New York City by bloodthirsty alien creatures with ultrasonic sound hearing.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column-33">
+        <div class="text-container">
+          <h1>A Quiet Place: Day One</h1>
+          <div class="g">Horror, Sci-fi</div>
+          <br>
+          <button class="b2" *ngIf="!showVideo2" (click)="playVideo2()">Watch Trailer</button>
+          <br>
+          <div style="text-align:justify; font-size: 20px;">Friday</div>
+          <button class="b1">4:00pm</button>
+          <button class="b1">6:00pm</button>
+          <br><br>
+          <div style="text-align:justify; font-size: 20px;">Saturday</div>
+          <button class="b1">5:30pm</button>
+          <br><br>
+          <div style="text-align:justify; font-size: 20px;">Sunday</div>
+          <button class="b1">3:00pm</button>
+          <button class="b1">5:00pm</button>
+        </div>
+      </div>
+
+      <div class="column-33">
+        <div id="videoPlayer" *ngIf="showVideo2">
+          <button class="b2" *ngIf="showVideo2" (click)="endVideo2()">Hide Trailer</button>
+          <br>
+          <iframe id="youtubeIframe" width="560" height="315" src="https://www.youtube.com/embed/gjx-iHGXk9Q" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="filterDiv monday wednesday thursday">
+    <div class="rrow">
+      <br><br>
+      <div class="column-33">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="assets/img/mothersinstinct.jpg">
+            </div>
+            <div class="flip-card-back">
+              <p>Alice and Celine live a traditional lifestyle with successful husbands and sons of the same age. Life's perfect harmony is suddenly shattered after a tragic accident. Guilt, suspicion and paranoia combine to unravel their sisterly bond.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column-33">
+        <div class="text-container">
+          <h1>Mothers' Instinct</h1>
+          <div class="g">Thriller, Drama</div>
+          <br>
+          <button class="b2" *ngIf="!showVideo3" (click)="playVideo3()">Watch Trailer</button>
+          <br>
+          <div style="text-align:justify; font-size: 20px;">Monday</div>
+          <button class="b1">7:30pm</button>
+          <button class="b1">9:00pm</button>
+          <br><br>
+          <div style="text-align:justify; font-size: 20px;">Wednesday</div>
+          <button class="b1">5:30pm</button>
+          <br><br>
+          <div style="text-align:justify; font-size: 20px;">Thursday</div>
+          <button class="b1">6:00pm</button>
+          <button class="b1">9:00pm</button>
+        </div>
+      </div>
+
+      <div class="column-33">
+        <div id="videoPlayer" *ngIf="showVideo3">
+          <button class="b2" *ngIf="showVideo3" (click)="endVideo3()">Hide Trailer</button>
+          <br>
+          <iframe id="youtubeIframe" width="560" height="315" src="https://www.youtube.com/embed/aLikloRQiUE" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="filterDiv tuesday thursday">
+    <div class="rrow">
+      <br><br>
+      <div class="column-33">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="assets/img/insideout.jpg">
+            </div>
+            <div class="flip-card-back">
+              <p>Follow Riley, in her teenage years, encountering new emotions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column-33">
+        <div class="text-container">
+          <h1>Inside Out 2</h1>
+          <div class="g">Family, Comedy</div>
+          <br>
+          <button class="b2" *ngIf="!showVideo4" (click)="playVideo4()">Watch Trailer</button>
+          <br>
+          <div style="text-align:justify; font-size: 20px;">Tuesday</div>
+          <button class="b1">7:00pm</button>
+          <br><br>
+          <div style="text-align:justify; font-size: 20px;">Thursday</div>
+          <button class="b1">5:00pm</button>
+          <button class="b1">8:30pm</button>
+        </div>
+      </div>
+
+      <div class="column-33">
+        <div id="videoPlayer" *ngIf="showVideo4">
+          <button class="b2" *ngIf="showVideo4" (click)="endVideo4()">Hide Trailer</button>
+          <br>
+          <iframe id="youtubeIframe" width="560" height="315" src="https://www.youtube.com/embed/LEjhY15eCx0" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

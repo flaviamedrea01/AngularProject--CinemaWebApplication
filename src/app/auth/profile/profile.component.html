@@ -1,0 +1,65 @@
+
+<div class="row">
+
+<br><br>
+<div class="column">
+  <mat-card class="custom">
+    <form (submit)="onUpdateProfile(profileForm)" [formGroup]="profileForm">
+
+  <br><br>
+      <div class="title">Update Profile</div>
+      <br>
+
+
+  <div class="avatar-options">
+    <mat-radio-group formControlName="avatar">
+      <mat-radio-button  *ngFor="let avatar of avatars" [value]="avatar.filename" (click)="selectedAvatarFile()">
+        <img class="avatar" [src]="'assets/avatars/' + avatar.filename">
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <br><br><br><br>
+      <mat-form-field>
+        <mat-label>Current First Name: {{ fName }}</mat-label>
+        <input matInput formControlName="firstName" ngModel type="text" placeholder="Change First Name">
+        <mat-error *ngIf="profileForm.controls['firstName'].invalid && profileForm.controls['firstName'].touched">
+          Please enter a valid first name.
+        </mat-error>
+      </mat-form-field>
+      <br>
+
+
+      <mat-form-field>
+        <mat-label>Current Last Name: {{ lName }}</mat-label>
+        <input matInput formControlName="lastName" ngModel type="text" placeholder="Change Last Name">
+        <mat-error *ngIf="profileForm.controls['lastName'].invalid && profileForm.controls['lastName'].touched">
+          Please enter a valid last name.
+        </mat-error>
+      </mat-form-field>
+
+
+  <br>
+      <button mat-raised-button color="blue" type="submit">Save Changes</button>
+    </form>
+  </mat-card>
+</div>
+
+<div class="column">
+  <mat-card class="customProfile">
+      <img class="profile" [src]="'assets/avatars/' + currentAvatar">
+      <br><br>
+      <div class="p1">{{ fName }} {{ lName }}</div>
+      <br>
+      <div class="p">{{ user.email }}</div>
+      <br><br><br><br><br><br><br><br>
+
+      <button class="blueP button-left" (click)="onLogout()">Logout</button>
+      <button class="blueP button-right" (click)="onDeleteAccount()">Delete Account</button>
+  </mat-card>
+
+
+
+</div>
+</div>
+

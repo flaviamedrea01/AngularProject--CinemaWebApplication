@@ -1,0 +1,46 @@
+<div class="title">My Movie Reviews</div>
+<br>
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<mat-accordion multi="true" *ngIf="posts.length > 0 && !isLoading">
+  <mat-expansion-panel  [expanded]="true" *ngFor="let post of posts">
+    <br><br>
+
+    <mat-expansion-panel-header>
+      {{ post.title }}
+    </mat-expansion-panel-header>
+    <div class="row">
+    <div class="column">
+      <div class="p1">{{ post.userName }}</div>
+      <br>
+
+      <app-star-rating [rating]="+post.rating" [starCount]="5"></app-star-rating>
+      <div class="p11">Rating: ({{ post.rating }}/5 stars)</div>
+      <br>
+      <div class="p2">Movie: {{ post.movie }}</div>
+    <hr>
+    <br>
+    <div class="p2">{{ post.content }}</div>
+    <hr><br>
+  </div>
+
+
+
+
+    <div class="column">
+    <div class="post-image">
+      <img [src]="post.imagePath" [alt]="post.title">
+    </div>
+
+    <br><br>
+    <br><br>
+    <mat-action-row>
+      <button mat-button color="primary" (click)="onEdit(post._id)">EDIT</button>
+      <button mat-button color="warn" (click)="onDelete(post._id)">DELETE</button>
+    </mat-action-row>
+  </div>
+  </div>
+  </mat-expansion-panel>
+</mat-accordion>
+<mat-paginator [length]="totalPosts" [pageSize]="postsPerPage" [pageSizeOptions]="pageSizeOptions" (page)="onChangedPage($event)"
+  *ngIf="posts.length > 0"></mat-paginator>
+<p class="info-text mat-body-1" *ngIf="posts.length <= 0 && !isLoading">You did not write any reviews.</p>

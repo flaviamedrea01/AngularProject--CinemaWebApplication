@@ -1,0 +1,96 @@
+<br><br><br>
+
+<div class="title">Book a Seat</div>
+
+<br>
+<mat-card class="custom">
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form [formGroup]="bookingForm" (submit)="onSaveBooking()" *ngIf="!isLoading">
+    <br><br><br>
+
+    <mat-form-field>
+      <mat-select [(ngModel)]="selectedMovie" (selectionChange)="getDatesForMovie()" formControlName="movie"
+        placeholder="Select a movie">
+        <mat-option *ngFor="let movie of movieList" [value]="movie.value">{{ movie.name }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="bookingForm.get('movie').invalid && bookingForm.get('movie').touched">
+        Movie is required.
+      </mat-error>
+    </mat-form-field>
+
+    <br><br>
+
+    <mat-form-field>
+      <mat-select [(ngModel)]="selectedDate" (selectionChange)="getCinemaSeats()" formControlName="date" placeholder="Select a date and time">
+        <mat-option *ngFor="let date of dates" [value]="date">{{ date }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="bookingForm.get('date').invalid && bookingForm.get('date').touched">
+        Date & Time required.
+      </mat-error>
+    </mat-form-field>
+
+    <br><br>
+
+
+    <div *ngIf="selectedDate" class="container">
+      <div class="screen"></div>
+      <div *ngIf="rows" >
+        <div *ngFor="let row of rows">
+          <div class="row">
+            <button
+              mat-raised-button
+              color="seat"
+              type="button"
+              *ngFor="let seat of row.seats"
+              [disabled]="seat.booked"
+              [ngClass]="{'mat-seat-enabled': !seat.booked, 'mat-seat-disabled': seat.booked, 'clicked': isSeatClicked(seat.name)}"
+              (click)="onSeatButtonClick(seat)"
+              for="seatNumber"
+            >
+              {{ seat.name }}
+            </button>
+          </div>
+        </div>
+     </div>
+
+<br><br>
+    <mat-form-field style="background-color:rgba(0,0,0,0);">
+
+
+      <input matInput formControlName="seatNumber" placeholder="Selected seat or seats.">
+      <mat-error *ngIf="bookingForm.get('seatNumber').invalid && bookingForm.get('seatNumber').touched">
+        Seat is required.
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+
+
+    <mat-form-field>
+      <input matInput type="text" formControlName="name" placeholder="Full Name">
+      <mat-error *ngIf="bookingForm.get('name').invalid && bookingForm.get('name').touched">
+        Please enter your full name. First letter of each name should be capital.
+      </mat-error>
+    </mat-form-field>
+
+    <br><br>
+
+    <mat-form-field>
+      <input matInput type="text" formControlName="email" placeholder="E-mail">
+      <mat-error *ngIf="bookingForm.get('email').invalid && bookingForm.get('email').touched">
+        Please enter your e-mail.
+      </mat-error>
+    </mat-form-field>
+
+    <br><br>
+
+    <br>
+    <button mat-raised-button color="blue" type="submit" [disabled]="bookingForm.invalid">Book Seat</button>
+    <br><br><br>
+  </form>
+</mat-card>
+<br><br>
+
+
+
+

@@ -1,0 +1,37 @@
+
+<head><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<mat-card class="custom">
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form (submit)="onSignup(signupForm)" #signupForm="ngForm" *ngIf="!isLoading">
+    <br>
+    <mat-card-header>Signup</mat-card-header>
+    <br><br><br>
+
+    <mat-form-field>
+      <input matInput name="firstName" ngModel type="text" placeholder="First Name" #firstNameInput="ngModel" required>
+      <mat-error *ngIf="firstNameInput.invalid">Please enter your first name.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput name="lastName" ngModel type="text" placeholder="Last Name" #lastNameInput="ngModel" required>
+      <mat-error *ngIf="lastNameInput.invalid">Please enter your last name.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput name="email" ngModel type="email" placeholder="E-Mail" #emailInput="ngModel" required email>
+      <mat-error *ngIf="emailInput.invalid">Please enter a valid email.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input type="password" name="password" ngModel matInput placeholder="Password" #passwordInput="ngModel" required [type]="hidePassword ? 'password' : 'text'">
+      <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+      <mat-error *ngIf="passwordInput.invalid">Please enter a valid password.</mat-error>
+    </mat-form-field>
+    <div class="info">*Password must include at least one capital letter, one number, and be at least 8 characters long.</div>
+    <br>
+    <button mat-raised-button color="blue" type="submit" *ngIf="!isLoading">Signup</button>
+    <br><br><br>
+  </form>
+</mat-card>

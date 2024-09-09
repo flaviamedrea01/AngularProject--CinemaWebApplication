@@ -1,0 +1,112 @@
+
+mat-form-field {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+
+}
+
+.custom-select-panel {
+  margin-top: 2px; /* Adjust as needed */
+}
+
+
+mat-spinner {
+  margin: auto;
+}
+
+mat-card-header {
+  color: black;
+	font-size: 30px;
+	text-shadow: 4px 4px 5px #4444dd;
+  margin-left: 7%;
+}
+
+
+.title {
+
+  color: black;
+	font-family: georgia, serif;
+	font-size: 60px;
+	font-variant: small-caps;
+	font-style: oblique;
+	text-shadow: 4px 4px 5px darkblue;
+	-webkit-text-stroke: 0.25px white;
+
+  display: block;
+  overflow: auto;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.p11 {
+  font-size: 15px;
+  color: black;
+  margin-left: 75px;
+
+}
+
+.custom {
+    display: block;
+    overflow: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+
+
+
+    border-radius: 10px;
+    border: 0.25px solid black;
+    box-shadow: 5px 10px 15px #4444dd;
+    background-color:rgba(0,0,0,0.1);
+
+  }
+
+
+
+
+.mat-blue {
+
+  font-family: georgia, serif;
+  font-size: 15px;
+  border-radius: 4px;
+  border: 0.25px solid black;
+  box-shadow: 4px 4px 5px #4444dd;
+  padding: 10px;
+  transition: all 0.5s;
+  margin-left: 10%;
+}
+
+.mat-blue:hover {
+
+  font-family: georgia, serif;
+  font-size: 15px;
+  border-radius: 4px;
+  border: 0.25px solid black;
+  box-shadow: 4px 4px 5px black;
+  padding: 10px;
+  transition: all 0.5s;
+  margin-left: 10%;
+}
+
+
+input[type="file"] {
+  visibility: hidden;
+}
+
+
+.image-preview {
+  height: 5rem;
+  margin: 1rem 0;
+  margin-left: 10%;
+
+}
+
+.image-preview img {
+  height: 100%;
+
+}
+
+

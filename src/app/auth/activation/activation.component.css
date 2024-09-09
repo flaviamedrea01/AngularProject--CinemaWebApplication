@@ -1,0 +1,16 @@
+
+.custom {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+
+  text-align: center;
+
+  width: 500px;
+  border-radius: 10px;
+  border: 0.25px solid black;
+  box-shadow: 5px 10px 15px #4444dd;
+  background-color: white;
+
+}

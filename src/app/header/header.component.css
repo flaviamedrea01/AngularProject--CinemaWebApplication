@@ -1,0 +1,48 @@
+ul {
+
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  font-family: georgia, serif;
+  text-decoration: none;
+  color: white;
+}
+
+ul {
+  display: flex;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+
+.custom-toolbar {
+  background-color: #26272b;
+  color: white;
+  overflow: hidden;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  width: 100%;
+  height: 40px;
+  box-shadow: 0px 1px 15px #4444dd;
+
+}
+
+
+.menu-item {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.account-menu {
+  position: absolute;
+  top: 100%;
+}
+
